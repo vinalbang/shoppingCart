@@ -1,0 +1,10 @@
+
+<div class='panel panel-primary'>
+  <h1>{{pageTitle | uppercase}}</h1>
+  <div class='panel panel-heading'>
+    <app-welcome *ngIf='!isLoggedIn'></app-welcome>
+  </div>
+  <div class='panel panel-body'>
+    <router-outlet></router-outlet>
+    </div>
+</div>

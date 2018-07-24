@@ -1,0 +1,19 @@
+ <div class='table-responsive'>
+    <table class='table' *ngIf='prodInCart && prodInCart.length'>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let product of prodInCart'>
+                    <td>{{product.name}}</td>
+                    <td>1</td>
+                    <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
