@@ -6,15 +6,22 @@ import{Product} from './productClass';
 })
 export class CartService {
 
-  prodInCart : Product[];
+  prodInCart : Product[]=[];
 
   pushProduct(prod:Product):void{
+
+    if(localStorage.getItem('cartEmpty')!='0'){
+      this.prodInCart=JSON.parse(localStorage.getItem('cart'));
+    }
     this.prodInCart.push(prod);
+    localStorage.setItem('cart',JSON.stringify(this.prodInCart));
+    localStorage.setItem('cartEmpty','1');
   }
 
   getProdInCart():Product[]{
+    this.prodInCart=JSON.parse(localStorage.getItem('cart'));
     return this.prodInCart;
   }
 
-  constructor() { }
+  constructor() { } 
 }

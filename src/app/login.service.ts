@@ -6,18 +6,20 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  isLoggedIn:boolean;
+  isLoggedIn:boolean=false;
 
   constructor() {
-    this.isLoggedIn=false;
+    //this.isLoggedIn=false;
    }
 
    getIsLoggedIn():boolean{
+     
      return this.isLoggedIn;
+      
    }
 
    setIsLoggedIn():void{
-     this.isLoggedIn=true;
+      this.isLoggedIn=true;
    }
 
 }

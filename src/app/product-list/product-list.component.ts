@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd,ActivatedRoute,Route } from '@angular/router';
+import {NavigationEnd,ActivatedRoute,Router } from '@angular/router';
 import {Product} from '../productClass';
 import {ProductService} from '../product.service';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +17,9 @@ export class ProductListComponent implements OnInit {
 
   products:Product[];
 
-  constructor(private route:ActivatedRoute , private productService: ProductService) {
+  
+
+  constructor(private route:ActivatedRoute, private router: Router, private productService: ProductService,private cart: CartService) {
     this.flag=0;
     this.route.params.subscribe(
       res=>this.setFlag(res.id)
@@ -45,8 +48,13 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  addToCart(ele:any):void{
-      console.log(ele.parentElement.id);
+  addToCart(p:Product):void{
+      if(localStorage.getItem('isLoggedIn')=='1'){
+        this.cart.pushProduct(p);
+      }
+      else{
+        this.router.navigate(['/login']);
+      }
   }
 
   ngOnInit() {
