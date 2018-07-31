@@ -1,6 +1,6 @@
     <div class='panel-body'>
         <div class="panel-body" *ngFor="let Product of products">
-          <div class="btn btn-info btn-sm" [id]='Product.id' (click)='addToCart(this)'>
+          <div class="btn btn-info btn-sm" [id]='Product.id' (click)='addToCart(Product)'>
             <span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart 
           </div> 
           <div class="col-xs-10">

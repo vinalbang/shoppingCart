@@ -5,22 +5,17 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {CartComponent} from './cart/cart.component';
 import {LoginComponent} from './login/login.component';
 import {ProductGuard} from './product.guard';
+import {LoginGuard} from './login.guard';
 
 const routes: Routes = [
   {
-    path:'about',
+    path:'',
     component: AboutComponent,
-    canActivate: [
-      ProductGuard
-    ],
     runGuardsAndResolvers: 'always'
   },
   {
     path:'product-list/:id',
     component:ProductListComponent,
-    canActivate: [
-      ProductGuard
-    ],
     runGuardsAndResolvers: 'always'
   },
   {
@@ -32,7 +27,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always'
   },
    {
-    path:'',
+    path:'login',
     component:LoginComponent,
     runGuardsAndResolvers: 'always'
   }
@@ -40,7 +35,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
-  exports: [RouterModule]
+  exports: [ RouterModule ]
 })
 
 

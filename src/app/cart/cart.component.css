@@ -1,0 +1,14 @@
+.imageClass{
+    width:200px;
+    height:200px;
+}
+.vertical-align{
+    display:flex;
+    align-items:center;
+}
+
+body{
+    background: url("/assets/images/cart.jpg");
+    background-repeat: no-repeat;
+    background-origin: content-box, padding-box;
+}

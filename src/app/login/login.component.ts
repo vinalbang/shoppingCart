@@ -10,6 +10,7 @@ import {AppComponent} from '../app.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  image="assets/images/shopping.jpg";
 
 constructor(private router:Router, private login: LoginService, private app:AppComponent) {
   
@@ -31,8 +32,7 @@ loginUser(e)
 if(username=='abcd' && password=='1234')
 {
   this.login.setIsLoggedIn();
-  this.app.setIsloggedIn();
-  this.router.navigate(['/about']);
+  this.router.navigate(['/cart']);
 }
 
 else
